@@ -31,6 +31,7 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
+        flex-wrap: wrap;
       }
       input,
       textarea {
@@ -39,6 +40,18 @@
       }
       button {
         padding: 5px;
+      }
+      @media screen and (max-width: 815px) {
+        .contactForm {
+          width: 90%;
+        }
+        .dataPart {
+          flex-direction: column;
+        }
+        input,
+        textarea {
+          width: 100%;
+        }
       }
     </style>
   </head>
