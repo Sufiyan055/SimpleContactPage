@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Data from HTML</title>
+    <style>
+      * {
+        margin: 0;
+        font-family: sans-serif;
+        box-sizing: border-box;
+      }
+      .coverContactForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: rgba(166, 99, 234, 0.552);
+      }
+      .contactForm {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid;
+        gap: 25px;
+        padding: 15px;
+        width: 35%;
+        background: #fff;
+      }
+      .dataPart {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+      input,
+      textarea {
+        width: 70%;
+        padding: 5px;
+      }
+      button {
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="coverContactForm">
+      <h1>Fill the data</h1>
+      <form class="contactForm" id="form">
+        <div class="dataPart">
+          <label for="">Name:</label>
+          <input
+            type="text"
+            placeholder="name"
+            name="name"
+            id="name"
+            required
+          />
+        </div>
+        <div class="dataPart">
+          <label for="">Phone No.:</label>
+          <input
+            type="number"
+            placeholder="Phone number"
+            name="phone"
+            id="phone"
+            required
+          />
+        </div>
+        <div class="dataPart">
+          <label for="">Email Id:</label>
+          <input
+            type="email"
+            placeholder="Email Id"
+            name="email"
+            id="email"
+            required
+          />
+        </div>
+        <div class="dataPart">
+          <label for="">Message:</label>
+          <textarea
+            name="message"
+            id="message"
+            rows="5"
+            cols="22"
+            placeholder="type here.."
+          ></textarea>
+        </div>
+
+        <button name="btn" type="submit" onclick="sendtoWhatsapp()">
+          Submit
+        </button>
+      </form>
+    </section>
+  </body>
+  <script>
+    function sendtoWhatsapp() {
+      let name = document.getElementById("name").value;
+      let phone = document.getElementById("phone").value;
+      let email = document.getElementById("email").value;
+      let message = document.getElementById("message").value;
+
+      let url =
+        "https://wa.me/917304888579?text=" +
+        "Name: " +
+        name +
+        "%0a" +
+        "Phone: " +
+        phone +
+        "%0a" +
+        "email: " +
+        email +
+        "%0a" +
+        "message: " +
+        message;
+
+      window.open(url, "_blank").focus();
+    }
+  </script>
+</html>
